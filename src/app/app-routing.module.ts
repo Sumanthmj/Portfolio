@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = []; // sets up routes constant where you define your routes

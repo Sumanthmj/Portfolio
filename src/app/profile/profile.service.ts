@@ -115,7 +115,11 @@ export class ProfileService {
       location: "Bangalore",
       timeline: "Jan 2020 to Present",
       role: "Senior Software Engineer",
-      work: "Working as a Front End developer .Responsible for handling the UI in Angular .",
+      work: `Built highly functional web applications using Angular, TypeScript, HTML and CSS . 
+             Communicated with product managers and UX designers to translate project requirements and
+             business objectives into polished user interfaces .
+             Directing and mentoring junior developers and engineers, teaching skills in Angular coding and
+             working to improve overall team performance`,
     },
   ];
 
