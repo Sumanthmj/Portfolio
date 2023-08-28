@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../profile.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-certificates',
   templateUrl: './certificates.component.html',
-  styleUrls: ['./certificates.component.scss']
+  styleUrls: ['./certificates.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':increment, :decrement', [
+            style({ opacity: 0, scale: 0.7}),
+            animate('500ms ease-out', style({ opacity: 1, scale: 1}))
+      ])
+    ])
+  ]
 })
-export class CertificatesComponent implements OnInit {
-  config: any;
-  certificates: any =[];
 
-  constructor(private profileService:ProfileService) { }
+export class CertificatesComponent implements OnInit {
+  certificates: any = [];
+  currentPage: number = 0;
+
+  constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
     this.certificates = this.profileService.getCertificates();
-    this.config = {
-      itemsPerPage: 1,
-      currentPage: 1,
-      totalItems: this.certificates.length
-    };
-  }
-
-  pageChanged(event: any){
-    this.config.currentPage = event;
   }
 }

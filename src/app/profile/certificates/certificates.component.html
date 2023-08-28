@@ -1,15 +1,14 @@
 <div class="section" id="certificates">
     <div class="container cc-education">
         <div class="h4 text-center mb-4 title">Certificates</div>
-
-        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-
-            <ng-container *ngFor="let certificate of certificates| paginate: config">
-                        <div style="display: flex; justify-content: center;">
-                            <img class="card-img-top" src={{certificate.imgUrl}} onerror="this.src = 'assets/images/gif.gif'" alt="Certificates" style="width:60%; height: auto;">
-                        </div>
-            </ng-container>
-
-        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        <div style="display: flex; justify-content: center;">
+            <div style="display: flex; align-items: center;">
+                <i class="fa fa-angle-left icons" style="font-size: 2.1rem; font-weight: 900; cursor: pointer;" (click)="currentPage != 0 && currentPage = currentPage - 1" [attr.disable]="currentPage == 0"></i>
+            </div>
+            <img [@fadeInOut]="currentPage" class="card-img-top" [src]="certificates[currentPage].imgUrl" onerror="this.src = 'assets/images/gif.gif'" alt="Certificates" style="width:60%; height: auto;">
+            <div style="display: flex; align-items: center;">
+                <i class="fa fa-angle-right icons" style="font-size: 2.1rem; font-weight: 900; cursor: pointer;" (click)="currentPage != certificates.length - 1 && currentPage = currentPage + 1" [attr.disable]="currentPage == certificates.length - 1"></i>
+            </div>
+        </div>
     </div>
 </div>
